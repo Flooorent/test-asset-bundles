@@ -1,0 +1,17 @@
+# The main job for test_asset_bundles
+resources:
+  pipelines:
+    flo-test-pipeline:
+      name: flo-test-pipeline
+      pipeline_type: WORKSPACE
+      development: true
+      continuous: false
+      channel: PREVIEW
+      photon: true
+      serverless: true
+      libraries:
+        - file:
+            path: ../src/dlt_pipeline.py
+      catalog: florent_moiny
+      target: test_dlt_read_2
+      data_sampling: false
