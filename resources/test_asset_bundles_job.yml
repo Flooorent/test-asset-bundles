@@ -4,7 +4,6 @@ resources:
     flo-test-pipeline:
       name: flo-test-pipeline
       pipeline_type: WORKSPACE
-      development: true
       continuous: false
       channel: PREVIEW
       photon: true
