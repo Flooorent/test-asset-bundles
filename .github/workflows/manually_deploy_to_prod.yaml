@@ -1,0 +1,22 @@
+name: manually_deploy_to_prod
+
+concurrency: 1
+
+on:
+  workflow_dispatch
+
+jobs:
+  deploy:
+    name: "Deploy bundle"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: databricks/setup-cli@main
+
+      - run: databricks bundle deploy
+        working-directory: .
+        env:
+          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN}}
+          DATABRICKS_BUNDLE_ENV: prod
